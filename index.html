@@ -40,6 +40,11 @@
       max-height: 400px;
       overflow-y: auto;
     }
+    /* Selected class list item style */
+    .watchli.selected {
+      background-color: #000000;
+      color: #ffffff;
+    }
   </style>
  </head>
  <body class="bg-slate-900 min-h-screen flex flex-col">
@@ -96,7 +101,7 @@
      <li class="watchli cursor-pointer text-white px-3 py-2 rounded-md hover:bg-slate-700" data-vid="55x5AFoBf-k" data-npdf="20240906-1725642024-RyRhHzMS.pdf" tabindex="0">
       শ্রেণিবিন্যাস পর্ব-০৬
      </li>
-     <li class="watchli cursor-pointer text-white px-3 py-2 rounded-md hover:bg-slate-700" data-vid="TYGm6YJ-gk8" data-npdf="20240918-1726604272-F24BJszJ.pdf" tabindex="0">
+     <li class="watchli cursor-pointer text-white px-3 py-2 rounded-md hover:bg-slate-700" data-vid="TYGm6YJ-gk8" data-npdf="20240918-1726604272-F24BJszJ.pdf" tabindex="0" style="">
       হাইড্রা - পর্ব ০১
      </li>
      <li class="watchli cursor-pointer text-white px-3 py-2 rounded-md hover:bg-slate-700" data-vid="3Fj6p3y2deQ" data-npdf="20240923-1727039208-NDagR8Kj.pdf" tabindex="0">
@@ -235,9 +240,18 @@
    const videoPlayer = document.getElementById('videoPlayer');
    const pdfDownload = document.getElementById('pdfDownload');
 
+   function clearSelected() {
+     document.querySelectorAll('.watchli.selected').forEach(el => {
+       el.classList.remove('selected');
+     });
+   }
+
    classList.addEventListener('click', (e) => {
      const li = e.target.closest('li.watchli');
      if (!li) return;
+
+     clearSelected();
+     li.classList.add('selected');
 
      const videoId = li.getAttribute('data-vid');
      const pdfFile = li.getAttribute('data-npdf');
@@ -256,6 +270,9 @@
        e.preventDefault();
        const li = e.target.closest('li.watchli');
        if (!li) return;
+
+       clearSelected();
+       li.classList.add('selected');
 
        const videoId = li.getAttribute('data-vid');
        const pdfFile = li.getAttribute('data-npdf');
