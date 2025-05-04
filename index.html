@@ -56,9 +56,9 @@
    </h1>
   </header>
   <!-- Main content -->
-  <main class="flex flex-1 gap-4 p-4">
-   <!-- Left content -->
-   <section aria-label="Live Class Section" class="flex-1 bg-slate-800 rounded-lg p-4 flex flex-col">
+  <main class="flex-1 p-4 flex flex-col md:flex-row md:gap-4">
+   <!-- Left content: video and pdf -->
+   <section aria-label="Live Class Section" class="bg-slate-800 rounded-lg p-4 flex flex-col w-full md:flex-1 md:order-1">
     <h2 class="text-white font-semibold mb-4">
      Live Class
     </h2>
@@ -72,8 +72,8 @@
      Download PDF
     </a>
    </section>
-   <!-- Right content -->
-   <aside aria-label="Class List Section" class="w-72 bg-slate-800 rounded-lg p-4 flex flex-col">
+   <!-- Right content: class list -->
+   <aside aria-label="Class List Section" class="bg-slate-800 rounded-lg p-4 flex flex-col w-full mt-4 md:w-72 md:mt-0 md:order-2">
     <button class="bg-black text-white rounded-md px-4 py-2 mb-4 flex items-center justify-center gap-2" type="button">
      <i class="fas fa-plus">
      </i>
